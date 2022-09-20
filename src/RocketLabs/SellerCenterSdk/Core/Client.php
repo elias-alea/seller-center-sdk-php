@@ -25,22 +25,22 @@ class Client
     const ACCEPT_TYPE = 'Accept: application/json';
 
     /** @var Configuration */
-    protected $configuration;
+    protected Configuration $configuration;
 
     /** @var RequestSignatureProviderInterface */
-    protected $signatureProvider;
+    protected RequestSignatureProviderInterface $signatureProvider;
 
     /** @var HttpClientInterface */
-    protected $httpClient;
+    protected HttpClientInterface $httpClient;
 
     /** @var OutputFormatAdapterInterface */
-    protected $requestBodyFormatter;
+    protected OutputFormatAdapterInterface $requestBodyFormatter;
 
     /** @var Factory */
-    protected $responseFactory;
+    protected Factory $responseFactory;
 
     /** @var TimestampFormatterInterface */
-    protected $timestampFormatter;
+    protected TimestampFormatterInterface $timestampFormatter;
 
     /**
      * @param Configuration $configuration
@@ -68,11 +68,11 @@ class Client
 
     /**
      * @param Configuration $configuration
-     * @param HttpClientInterface $httpClient
+     * @param ?HttpClientInterface $httpClient
      *
      * @return Client
      */
-    public static function create(Configuration $configuration, HttpClientInterface $httpClient = null)
+    public static function create(Configuration $configuration, HttpClientInterface $httpClient = null): Client
     {
         return new static(
             $configuration,
@@ -89,7 +89,7 @@ class Client
      *
      * @return ResponseInterface
      */
-    public function call(RequestInterface $request)
+    public function call(RequestInterface $request): ResponseInterface
     {
         $httpRequest = new Request(
             $request->getMethod(),
@@ -111,7 +111,7 @@ class Client
      *
      * @return string
      */
-    protected function createSignatureForRequest(array $parameters)
+    protected function createSignatureForRequest(array $parameters): string
     {
         ksort($parameters);
         $queryString = http_build_query($parameters, '', '&', PHP_QUERY_RFC3986);
@@ -123,7 +123,7 @@ class Client
      * @param RequestInterface $request
      * @return string
      */
-    protected function buildUrl(RequestInterface $request)
+    protected function buildUrl(RequestInterface $request): string
     {
         $parameters = $request->toArray();
         $parameters[RequestInterface::FIELD_USER_ID] = $this->configuration->getUser();
@@ -137,5 +137,21 @@ class Client
                 '&',
                 PHP_QUERY_RFC3986
             );
+    }
+
+    /**
+     * @return string
+     */
+    public function getUser(): string
+    {
+        return $this->configuration->getUser();
+    }
+
+    /**
+     * @return string
+     */
+    public function getKey(): string
+    {
+        return $this->configuration->getKey();
     }
 }
