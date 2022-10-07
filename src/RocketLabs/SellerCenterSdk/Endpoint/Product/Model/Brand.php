@@ -16,7 +16,7 @@ class Brand extends ModelAbstract
     /**
      * @var array
      */
-    protected $fieldDefinition = [
+    protected array $fieldDefinition = [
         self::ID_KEY => self::TYPE_INT,
         self::NAME_KEY => self::TYPE_STRING,
         self::GLOBAL_IDENTIFIER_KEY => self::TYPE_STRING,

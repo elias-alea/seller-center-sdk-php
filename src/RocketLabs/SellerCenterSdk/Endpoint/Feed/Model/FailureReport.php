@@ -15,7 +15,7 @@ class FailureReport extends ModelAbstract
     /**
      * @var array
      */
-    protected $fieldDefinition = [
+    protected array $fieldDefinition = [
         self::MIME_TYPE_KEY => self::TYPE_STRING,
         self::FILE_KEY => self::TYPE_STRING,
     ];

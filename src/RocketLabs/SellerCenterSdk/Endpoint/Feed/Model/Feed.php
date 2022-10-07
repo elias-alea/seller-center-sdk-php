@@ -23,7 +23,7 @@ class Feed extends ModelAbstract
     /**
      * @var array
      */
-    protected $fieldDefinition = [
+    protected array $fieldDefinition = [
         self::FEED_KEY => self::TYPE_STRING,
         self::STATUS_KEY => self::TYPE_STRING,
         self::ACTION_KEY => self::TYPE_STRING,

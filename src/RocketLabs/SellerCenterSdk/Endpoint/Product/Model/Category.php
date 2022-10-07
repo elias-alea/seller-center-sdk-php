@@ -19,7 +19,7 @@ class Category extends ModelAbstract
     /**
      * @var array
      */
-    protected $fieldDefinition = [
+    protected array $fieldDefinition = [
         self::NAME =>  self::TYPE_STRING,
         self::CATEGORY_ID => self::TYPE_STRING,
         self::GLOBAL_IDENTIFIER => self::TYPE_STRING
