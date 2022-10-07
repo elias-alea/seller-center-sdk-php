@@ -33,7 +33,7 @@ class Order extends ModelAbstract
     /**
      * @var array
      */
-    protected $fieldDefinition = [
+    protected array $fieldDefinition = [
         self::ORDER_ID => self::TYPE_INT,
         self::CUSTOMER_FIRST_NAME => self::TYPE_STRING,
         self::CUSTOMER_LAST_NAME => self::TYPE_STRING,

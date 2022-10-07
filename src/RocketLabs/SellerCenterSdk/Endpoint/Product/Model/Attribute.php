@@ -24,7 +24,7 @@ class Attribute extends ModelAbstract
     /**
      * @var array
      */
-    protected $fieldDefinition = [
+    protected array $fieldDefinition = [
         self::NAME => self::TYPE_STRING,
         self::LABEL => self::TYPE_STRING,
         self::IS_MANDATORY => self::TYPE_BOOL,
@@ -89,7 +89,7 @@ class Attribute extends ModelAbstract
     /**
      * @inheritdoc
      */
-    protected function buildObjectFromDefinition($class, $data)
+    protected function buildObjectFromDefinition(string $class, mixed $data)
     {
 
         if ($class === OptionCollection::class) {

@@ -27,7 +27,7 @@ class Address extends ModelAbstract
     /**
      * @var array
      */
-    protected $fieldDefinition = [
+    protected array $fieldDefinition = [
         self::FIRST_NAME => self::TYPE_STRING,
         self::LAST_NAME => self::TYPE_STRING,
         self::PHONE => self::TYPE_STRING,

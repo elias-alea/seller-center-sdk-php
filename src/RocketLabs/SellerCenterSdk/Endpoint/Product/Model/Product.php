@@ -2,6 +2,7 @@
 
 namespace RocketLabs\SellerCenterSdk\Endpoint\Product\Model;
 
+use DateTimeInterface;
 use RocketLabs\SellerCenterSdk\Core\Model\ModelAbstract;
 
 /**
@@ -30,6 +31,9 @@ class Product extends ModelAbstract
     const MAIN_IMAGE = 'MainImage';
     const IMAGES = 'Images';
     const PRIMARY_CATEGORY = 'PrimaryCategory';
+    const PRIMARY_CATEGORY_ID = 'PrimaryCategoryId';
+    const PACKAGE_CONTENT = 'PackageContent';
+    const SHELF_LIFE_MANAGED = 'ShelfLifeManaged';
     const CATEGORIES = 'Categories';
     const PRODUCT_DATA = 'ProductData';
     const BROWSE_NODES = 'BrowseNodes';
@@ -39,7 +43,7 @@ class Product extends ModelAbstract
     /**
      * @var array
      */
-    protected $fieldDefinition = [
+    protected array $fieldDefinition = [
         self::SELLER_SKU => self::TYPE_STRING,
         self::SHOP_SKU => self::TYPE_STRING,
         self::NAME => self::TYPE_STRING,
@@ -61,6 +65,9 @@ class Product extends ModelAbstract
         self::MAIN_IMAGE => self::TYPE_MIXED,
         self::IMAGES => self::TYPE_STRING,
         self::PRIMARY_CATEGORY => self::TYPE_STRING,
+        self::PRIMARY_CATEGORY_ID => self::TYPE_STRING,
+        self::PACKAGE_CONTENT => self::TYPE_STRING,
+        self::SHELF_LIFE_MANAGED => self::TYPE_STRING,
         self::CATEGORIES => self::TYPE_STRING,
         self::PRODUCT_DATA => self::TYPE_STRING,
     ];
@@ -68,185 +75,209 @@ class Product extends ModelAbstract
     /**
      * @return string
      */
-    public function getSellerSku()
+    public function getSellerSku(): string
     {
-        return $this->data[self::SELLER_SKU];
+        return $this->get($this->data, self::SELLER_SKU);
     }
 
     /**
      * @return string
      */
-    public function getShopSku()
+    public function getShopSku(): string
     {
-        return $this->data[self::SHOP_SKU];
+        return $this->get($this->data, self::SHOP_SKU);
     }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->data[self::NAME];
+        return $this->get($this->data, self::NAME);
     }
 
     /**
      * @return string
      */
-    public function getBrand()
+    public function getBrand(): string
     {
-        return $this->data[self::BRAND];
+        return $this->get($this->data, self::BRAND);
     }
 
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
-        return $this->data[self::DESCRIPTION];
+        return $this->get($this->data, self::DESCRIPTION);
     }
 
     /**
      * @return string
      */
-    public function getTaxClass()
+    public function getTaxClass(): string
     {
-        return $this->data[self::TAX_CLASS];
+        return $this->get($this->data, self::TAX_CLASS);
     }
 
     /**
      * @return string
      */
-    public function getVariation()
+    public function getVariation(): string
     {
-        return $this->data[self::VARIATION];
+        return $this->get($this->data, self::VARIATION);
     }
 
     /**
      * @return string
      */
-    public function getParentSku()
+    public function getParentSku(): string
     {
-        return $this->data[self::PARENT_SKU];
+        return $this->get($this->data, self::PARENT_SKU);
     }
 
     /**
      * @return string
      */
-    public function getQuantity()
+    public function getQuantity(): string
     {
-        return $this->data[self::QUANTITY];
+        return $this->get($this->data, self::QUANTITY);
     }
 
     /**
      * @return string
      */
-    public function getFulfillmentByNonSellable()
+    public function getFulfillmentByNonSellable(): string
     {
-        return $this->data[self::FULFILLMENT_BY_NON_SELLABLE];
+        return $this->get($this->data, self::FULFILLMENT_BY_NON_SELLABLE);
     }
 
     /**
      * @return string
      */
-    public function getAvailable()
+    public function getAvailable(): string
     {
-        return $this->data[self::AVAILABLE];
+        return $this->get($this->data, self::AVAILABLE);
     }
 
     /**
      * @return float
      */
-    public function getPrice()
+    public function getPrice(): float
     {
-        return $this->data[self::PRICE];
+        return $this->get($this->data, self::PRICE);
     }
 
     /**
      * @return float
      */
-    public function getSalePrice()
+    public function getSalePrice(): float
     {
-        return $this->data[self::SALE_PRICE];
+        return $this->get($this->data, self::SALE_PRICE);
     }
 
     /**
-     * @return \DateTimeInterface
+     * @return DateTimeInterface
      */
-    public function getSaleStartDate()
+    public function getSaleStartDate(): DateTimeInterface
     {
-        return $this->data[self::SALE_START_DATE];
+        return $this->get($this->data, self::SALE_START_DATE);
     }
 
     /**
-     * @return \DateTimeInterface
+     * @return DateTimeInterface
      */
-    public function getSaleEndDate()
+    public function getSaleEndDate(): DateTimeInterface
     {
-        return $this->data[self::SALE_END_DATE];
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->data[self::STATUS];
+        return $this->get($this->data, self::SALE_END_DATE);
     }
 
     /**
      * @return string
      */
-    public function getProductId()
+    public function getStatus(): string
     {
-        return $this->data[self::PRODUCT_ID];
+        return $this->get($this->data, self::STATUS);
     }
 
     /**
      * @return string
      */
-    public function getUrl()
+    public function getProductId(): string
     {
-        return $this->data[self::URL];
+        return $this->get($this->data, self::PRODUCT_ID);
     }
 
     /**
      * @return string
      */
-    public function getMainImage()
+    public function getUrl(): string
     {
-        return $this->data[self::MAIN_IMAGE];
+        return $this->get($this->data, self::URL);
+    }
+
+    /**
+     * @return string
+     */
+    public function getMainImage(): string
+    {
+        return $this->get($this->data, self::MAIN_IMAGE);
     }
 
     /**
      * @return array
      */
-    public function getImages()
+    public function getImages(): array
     {
-        return $this->data[self::IMAGES];
+        return $this->get($this->data, self::IMAGES);
     }
 
     /**
      * @return string
      */
-    public function getPrimaryCategory()
+    public function getPrimaryCategory(): string
     {
-        return $this->data[self::PRIMARY_CATEGORY];
+        return $this->get($this->data, self::PRIMARY_CATEGORY);
     }
 
     /**
      * @return string
      */
-    public function getCategories()
+    public function getCategories(): string
     {
-        return $this->data[self::CATEGORIES];
+        return $this->get($this->data, self::CATEGORIES);
     }
 
     /**
      * @return string
      */
-    public function getProductData()
+    public function getProductData(): string
     {
-        return $this->data[self::PRODUCT_DATA];
+        return $this->get($this->data, self::PRODUCT_DATA);
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrimaryCategoryId(): string
+    {
+        return $this->get($this->data, self::PRIMARY_CATEGORY_ID);
+    }
+
+    /**
+     * @return string
+     */
+    public function getPackageContent(): string
+    {
+        return $this->get($this->data, self::PACKAGE_CONTENT);
+    }
+
+    /**
+     * @return string
+     */
+    public function getShelfLifeManaged(): string
+    {
+        return $this->get($this->data, self::SHELF_LIFE_MANAGED);
     }
 
 }

@@ -42,7 +42,7 @@ class Item extends ModelAbstract
     /**
      * @var array
      */
-    protected $fieldDefinition = [
+    protected array $fieldDefinition = [
         self::ORDER_ITEM_ID => self::TYPE_INT,
         self::SHOP_ID => self::TYPE_INT,
         self::ORDER_ID => self::TYPE_INT,

@@ -2,6 +2,9 @@
 
 namespace RocketLabs\SellerCenterSdk\Core\Model;
 
+use DateTimeImmutable;
+use Exception;
+
 /**
  * Class ModelAbstract
  */
@@ -17,15 +20,16 @@ abstract class ModelAbstract
     /**
      * @var array
      */
-    protected $fieldDefinition = [];
+    protected array $fieldDefinition = [];
 
     /**
      * @var array
      */
-    protected $data = [];
+    protected array $data = [];
 
     /**
      * @param array $data
+     * @throws Exception
      */
     public function __construct(array $data)
     {
@@ -40,26 +44,14 @@ abstract class ModelAbstract
                 continue;
             }
 
-            switch ($type) {
-                case static::TYPE_MIXED:
-                case static::TYPE_STRING:
-                    $this->data[$key] = $data[$key];
-                    break;
-                case static::TYPE_BOOL:
-                    $this->data[$key] = (bool) $data[$key];
-                    break;
-                case static::TYPE_INT:
-                    $this->data[$key] = (int) $data[$key];
-                    break;
-                case static::TYPE_FLOAT:
-                    $this->data[$key] = (float) $data[$key];
-                    break;
-                case static::TYPE_DATETIME:
-                    $this->data[$key] = new \DateTimeImmutable($data[$key]);
-                    break;
-                default:
-                    $this->data[$key] = $this->buildObjectFromDefinition($type, $data[$key]);
-            }
+            $this->data[$key] = match ($type) {
+                static::TYPE_MIXED, static::TYPE_STRING => $data[$key],
+                static::TYPE_BOOL => (bool)$data[$key],
+                static::TYPE_INT => (int)$data[$key],
+                static::TYPE_FLOAT => (float)$data[$key],
+                static::TYPE_DATETIME => new DateTimeImmutable($data[$key]),
+                default => $this->buildObjectFromDefinition($type, $data[$key]),
+            };
         }
     }
 
@@ -68,8 +60,24 @@ abstract class ModelAbstract
      * @param mixed $data
      * @return mixed
      */
-    protected function buildObjectFromDefinition($class, $data)
+    protected function buildObjectFromDefinition(string $class, mixed $data): mixed
     {
         return new $class($data);
+    }
+
+    /**
+     * @param array $source
+     * @param string $accessor
+     * @param $default
+     *
+     * @return mixed|null
+     */
+    protected function get(array $source, string $accessor, $default = null): mixed
+    {
+        if (array_key_exists($accessor, $source)) {
+            return $source[$accessor];
+        }
+
+        return $default;
     }
 }

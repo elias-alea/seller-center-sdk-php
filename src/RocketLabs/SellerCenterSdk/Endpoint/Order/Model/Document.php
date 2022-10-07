@@ -16,7 +16,7 @@ class Document extends ModelAbstract
     /**
      * @var array
      */
-    protected $fieldDefinition = [
+    protected array $fieldDefinition = [
         self::DOCUMENT_TYPE_KEY => self::TYPE_STRING,
         self::MIME_TYPE_KEY => self::TYPE_STRING,
         self::FILE_KEY => self::TYPE_STRING,
