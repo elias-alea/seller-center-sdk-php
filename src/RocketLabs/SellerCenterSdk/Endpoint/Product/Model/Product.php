@@ -123,7 +123,7 @@ class Product extends ModelAbstract
     /**
      * @return string
      */
-    public function getVariation(): string
+    public function getVariation(): ?string
     {
         return $this->get($this->data, self::VARIATION);
     }
@@ -147,7 +147,7 @@ class Product extends ModelAbstract
     /**
      * @return string
      */
-    public function getFulfillmentByNonSellable(): string
+    public function getFulfillmentByNonSellable(): ?string
     {
         return $this->get($this->data, self::FULFILLMENT_BY_NON_SELLABLE);
     }
@@ -171,7 +171,7 @@ class Product extends ModelAbstract
     /**
      * @return float
      */
-    public function getSalePrice(): float
+    public function getSalePrice(): ?float
     {
         return $this->get($this->data, self::SALE_PRICE);
     }
@@ -179,7 +179,7 @@ class Product extends ModelAbstract
     /**
      * @return DateTimeInterface
      */
-    public function getSaleStartDate(): DateTimeInterface
+    public function getSaleStartDate(): ?DateTimeInterface
     {
         return $this->get($this->data, self::SALE_START_DATE);
     }
@@ -187,7 +187,7 @@ class Product extends ModelAbstract
     /**
      * @return DateTimeInterface
      */
-    public function getSaleEndDate(): DateTimeInterface
+    public function getSaleEndDate(): ?DateTimeInterface
     {
         return $this->get($this->data, self::SALE_END_DATE);
     }
@@ -243,7 +243,7 @@ class Product extends ModelAbstract
     /**
      * @return string
      */
-    public function getCategories(): string
+    public function getCategories(): ?string
     {
         return $this->get($this->data, self::CATEGORIES);
     }
@@ -251,7 +251,7 @@ class Product extends ModelAbstract
     /**
      * @return string
      */
-    public function getProductData(): string
+    public function getProductData(): array
     {
         return $this->get($this->data, self::PRODUCT_DATA);
     }
@@ -267,7 +267,7 @@ class Product extends ModelAbstract
     /**
      * @return string
      */
-    public function getPackageContent(): string
+    public function getPackageContent(): ?string
     {
         return $this->get($this->data, self::PACKAGE_CONTENT);
     }
@@ -275,7 +275,7 @@ class Product extends ModelAbstract
     /**
      * @return string
      */
-    public function getShelfLifeManaged(): string
+    public function getShelfLifeManaged(): ?string
     {
         return $this->get($this->data, self::SHELF_LIFE_MANAGED);
     }
