@@ -201,9 +201,9 @@ class Product extends ModelAbstract
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getProductId(): string
+    public function getProductId(): ?string
     {
         return $this->get($this->data, self::PRODUCT_ID);
     }
