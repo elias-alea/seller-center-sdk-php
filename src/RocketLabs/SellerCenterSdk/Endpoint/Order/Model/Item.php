@@ -120,7 +120,7 @@ class Item extends ModelAbstract
      */
     public function getName(): string
     {
-        return $this->get($this->data, self::NAME);
+        return $this->get($this->data, self::NAME, '');
     }
 
     /**
@@ -128,7 +128,7 @@ class Item extends ModelAbstract
      */
     public function getSku(): string
     {
-        return $this->get($this->data, self::SKU);
+        return $this->get($this->data, self::SKU, '');
     }
 
     /**
@@ -136,7 +136,7 @@ class Item extends ModelAbstract
      */
     public function getShopSku(): string
     {
-        return $this->get($this->data, self::SHOP_SKU);
+        return $this->get($this->data, self::SHOP_SKU, '');
     }
 
     /**
@@ -144,7 +144,7 @@ class Item extends ModelAbstract
      */
     public function getShippingType(): string
     {
-        return $this->get($this->data, self::SHIPPING_TYPE);
+        return $this->get($this->data, self::SHIPPING_TYPE, '');
     }
 
     /**
@@ -152,7 +152,7 @@ class Item extends ModelAbstract
      */
     public function getItemPrice(): string
     {
-        return $this->get($this->data, self::ITEM_PRICE);
+        return $this->get($this->data, self::ITEM_PRICE, '');
     }
 
     /**
@@ -160,7 +160,7 @@ class Item extends ModelAbstract
      */
     public function getPaidPrice(): string
     {
-        return $this->get($this->data, self::PAID_PRICE);
+        return $this->get($this->data, self::PAID_PRICE, '');
     }
 
     /**
@@ -168,7 +168,7 @@ class Item extends ModelAbstract
      */
     public function getWalletCredits(): string
     {
-        return $this->get($this->data, self::WALLET_CREDITS);
+        return $this->get($this->data, self::WALLET_CREDITS, '');
     }
 
     /**
@@ -176,7 +176,7 @@ class Item extends ModelAbstract
      */
     public function getTaxAmount(): string
     {
-        return $this->get($this->data, self::TAX_AMOUNT);
+        return $this->get($this->data, self::TAX_AMOUNT, '');
     }
 
     /**
@@ -184,7 +184,7 @@ class Item extends ModelAbstract
      */
     public function getShippingAmount(): string
     {
-        return $this->get($this->data, self::SHIPPING_AMOUNT);
+        return $this->get($this->data, self::SHIPPING_AMOUNT, '');
     }
 
     /**
@@ -192,7 +192,7 @@ class Item extends ModelAbstract
      */
     public function getVoucherAmount(): string
     {
-        return $this->get($this->data, self::VOUCHER_AMOUNT);
+        return $this->get($this->data, self::VOUCHER_AMOUNT, '');
     }
 
     /**
@@ -200,7 +200,7 @@ class Item extends ModelAbstract
      */
     public function getVoucherCode(): string
     {
-        return $this->get($this->data, self::VOUCHER_CODE);
+        return $this->get($this->data, self::VOUCHER_CODE, '');
     }
 
     /**
@@ -208,7 +208,7 @@ class Item extends ModelAbstract
      */
     public function getStatus(): string
     {
-        return $this->get($this->data, self::STATUS);
+        return $this->get($this->data, self::STATUS, '');
     }
 
     /**
@@ -216,7 +216,7 @@ class Item extends ModelAbstract
      */
     public function getShipmentProvider(): string
     {
-        return $this->get($this->data, self::SHIPMENT_PROVIDER);
+        return $this->get($this->data, self::SHIPMENT_PROVIDER, '');
     }
 
     /**
@@ -232,7 +232,7 @@ class Item extends ModelAbstract
      */
     public function getDigitalDeliveryInfo(): string
     {
-        return $this->get($this->data, self::DIGITAL_DELIVERY_INFO);
+        return $this->get($this->data, self::DIGITAL_DELIVERY_INFO, '');
     }
 
     /**
@@ -240,7 +240,7 @@ class Item extends ModelAbstract
      */
     public function getTrackingCode(): string
     {
-        return $this->get($this->data, self::TRACKING_CODE);
+        return $this->get($this->data, self::TRACKING_CODE, '');
     }
 
     /**
@@ -248,7 +248,7 @@ class Item extends ModelAbstract
      */
     public function getReason(): string
     {
-        return $this->get($this->data, self::REASON);
+        return $this->get($this->data, self::REASON, '');
     }
 
     /**
@@ -256,7 +256,7 @@ class Item extends ModelAbstract
      */
     public function getReasonDetail(): string
     {
-        return $this->get($this->data, self::REASON_DETAIL);
+        return $this->get($this->data, self::REASON_DETAIL, '');
     }
 
     /**
@@ -272,7 +272,7 @@ class Item extends ModelAbstract
      */
     public function getPurchaseOrderNumber(): string
     {
-        return $this->get($this->data, self::PURCHASE_ORDER_NUMBER);
+        return $this->get($this->data, self::PURCHASE_ORDER_NUMBER, '');
     }
 
     /**
@@ -280,7 +280,7 @@ class Item extends ModelAbstract
      */
     public function getPackageId(): string
     {
-        return $this->get($this->data, self::PACKAGE_ID);
+        return $this->get($this->data, self::PACKAGE_ID, '');
     }
 
     /**
@@ -288,7 +288,7 @@ class Item extends ModelAbstract
      */
     public function getShippingProviderType(): string
     {
-        return $this->get($this->data, self::SHIPPING_PROVIDER_TYPE);
+        return $this->get($this->data, self::SHIPPING_PROVIDER_TYPE, '');
     }
 
     /**
@@ -296,7 +296,7 @@ class Item extends ModelAbstract
      */
     public function getExtraAttributes(): string
     {
-        return $this->get($this->data, self::EXTRA_ATTRIBUTES);
+        return $this->get($this->data, self::EXTRA_ATTRIBUTES, '');
     }
 
     /**
