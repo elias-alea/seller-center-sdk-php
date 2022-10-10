@@ -2,6 +2,7 @@
 
 namespace RocketLabs\SellerCenterSdk\Endpoint\Order\Model;
 
+use DateTimeInterface;
 use RocketLabs\SellerCenterSdk\Core\Model\ModelAbstract;
 
 /**
@@ -33,11 +34,19 @@ class Item extends ModelAbstract
     const PURCHASE_ORDER_ID = 'PurchaseOrderId';
     const PURCHASE_ORDER_NUMBER = 'PurchaseOrderNumber';
     const PACKAGE_ID = 'PackageId';
-    const PROMISED_SHIPPING_TIMES = 'PromisedShippingTimes';
     const SHIPPING_PROVIDER_TYPE = 'ShippingProviderType';
     const EXTRA_ATTRIBUTES = 'ExtraAttributes';
     const CREATED_AT = 'CreatedAt';
     const UPDATED_AT = 'UpdatedAt';
+    const VARIATION = 'Variation';
+    const SHIPMENT_METHOD = 'ShipmentMethod';
+    const CURRENCY = 'Currency';
+    const COD_COLLECTABLE_AMOUNT = 'CodCollectableAmount';
+    const SHIPPING_SERVICE_COST = 'ShippingServiceCost';
+    const IS_PROCESSABLE = 'isProcessable';
+    const TRACKING_CODE_PRE = 'TrackingCodePre';
+    const PROMISED_SHIPPING_TIME = 'PromisedShippingTime';
+    const RETURN_STATUS = 'ReturnStatus';
 
     /**
      * @var array
@@ -67,242 +76,315 @@ class Item extends ModelAbstract
         self::PURCHASE_ORDER_ID => self::TYPE_INT,
         self::PURCHASE_ORDER_NUMBER => self::TYPE_STRING,
         self::PACKAGE_ID => self::TYPE_STRING,
-        self::PROMISED_SHIPPING_TIMES => self::TYPE_DATETIME,
         self::SHIPPING_PROVIDER_TYPE => self::TYPE_STRING,
         self::EXTRA_ATTRIBUTES => self::TYPE_STRING,
         self::CREATED_AT => self::TYPE_DATETIME,
-        self::UPDATED_AT => self::TYPE_DATETIME
+        self::UPDATED_AT => self::TYPE_DATETIME,
+        self::VARIATION => self::TYPE_STRING,
+        self::SHIPMENT_METHOD => self::TYPE_STRING,
+        self::CURRENCY => self::TYPE_STRING,
+        self::COD_COLLECTABLE_AMOUNT => self::TYPE_STRING,
+        self::SHIPPING_SERVICE_COST => self::TYPE_STRING,
+        self::IS_PROCESSABLE => self::TYPE_STRING,
+        self::TRACKING_CODE_PRE => self::TYPE_STRING,
+        self::PROMISED_SHIPPING_TIME => self::TYPE_STRING,
+        self::RETURN_STATUS => self::TYPE_STRING,
     ];
 
     /**
      * @return int
      */
-    public function getOrderItemId()
+    public function getOrderItemId(): int
     {
-        return $this->data[self::ORDER_ITEM_ID];
+        return $this->get($this->data, self::ORDER_ITEM_ID);
     }
 
     /**
      * @return int
      */
-    public function getShopId()
+    public function getShopId(): int
     {
-        return $this->data[self::SHOP_ID];
+        return $this->get($this->data, self::SHOP_ID);
     }
 
     /**
      * @return int
      */
-    public function getOrderId()
+    public function getOrderId(): int
     {
-        return $this->data[self::ORDER_ID];
+        return $this->get($this->data, self::ORDER_ID);
     }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->data[self::NAME];
+        return $this->get($this->data, self::NAME);
     }
 
     /**
      * @return string
      */
-    public function getSku()
+    public function getSku(): string
     {
-        return $this->data[self::SKU];
+        return $this->get($this->data, self::SKU);
     }
 
     /**
      * @return string
      */
-    public function getShopSku()
+    public function getShopSku(): string
     {
-        return $this->data[self::SHOP_SKU];
+        return $this->get($this->data, self::SHOP_SKU);
     }
 
     /**
      * @return string
      */
-    public function getShippingType()
+    public function getShippingType(): string
     {
-        return $this->data[self::SHIPPING_TYPE];
+        return $this->get($this->data, self::SHIPPING_TYPE);
     }
 
     /**
      * @return string
      */
-    public function getItemPrice()
+    public function getItemPrice(): string
     {
-        return $this->data[self::ITEM_PRICE];
+        return $this->get($this->data, self::ITEM_PRICE);
     }
 
     /**
      * @return string
      */
-    public function getPaidPrice()
+    public function getPaidPrice(): string
     {
-        return $this->data[self::PAID_PRICE];
+        return $this->get($this->data, self::PAID_PRICE);
     }
 
     /**
      * @return string
      */
-    public function getWalletCredits()
+    public function getWalletCredits(): string
     {
-        return $this->data[self::WALLET_CREDITS];
+        return $this->get($this->data, self::WALLET_CREDITS);
     }
 
     /**
      * @return string
      */
-    public function getTaxAmount()
+    public function getTaxAmount(): string
     {
-        return $this->data[self::TAX_AMOUNT];
+        return $this->get($this->data, self::TAX_AMOUNT);
     }
 
     /**
      * @return string
      */
-    public function getShippingAmount()
+    public function getShippingAmount(): string
     {
-        return $this->data[self::SHIPPING_AMOUNT];
+        return $this->get($this->data, self::SHIPPING_AMOUNT);
     }
 
     /**
      * @return string
      */
-    public function getVoucherAmount()
+    public function getVoucherAmount(): string
     {
-        return $this->data[self::VOUCHER_AMOUNT];
+        return $this->get($this->data, self::VOUCHER_AMOUNT);
     }
 
     /**
      * @return string
      */
-    public function getVoucherCode()
+    public function getVoucherCode(): string
     {
-        return $this->data[self::VOUCHER_CODE];
+        return $this->get($this->data, self::VOUCHER_CODE);
     }
 
     /**
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
-        return $this->data[self::STATUS];
+        return $this->get($this->data, self::STATUS);
     }
 
     /**
      * @return string
      */
-    public function getShipmentProvider()
+    public function getShipmentProvider(): string
     {
-        return $this->data[self::SHIPMENT_PROVIDER];
+        return $this->get($this->data, self::SHIPMENT_PROVIDER);
     }
 
     /**
      * @return boolean
      */
-    public function isDigital()
+    public function isDigital(): bool
     {
-        return $this->data[self::IS_DIGITAL];
+        return $this->get($this->data, self::IS_DIGITAL);
     }
 
     /**
      * @return string
      */
-    public function getDigitalDeliveryInfo()
+    public function getDigitalDeliveryInfo(): string
     {
-        return $this->data[self::DIGITAL_DELIVERY_INFO];
+        return $this->get($this->data, self::DIGITAL_DELIVERY_INFO);
     }
 
     /**
      * @return string
      */
-    public function getTrackingCode()
+    public function getTrackingCode(): string
     {
-        return $this->data[self::TRACKING_CODE];
+        return $this->get($this->data, self::TRACKING_CODE);
     }
 
     /**
      * @return string
      */
-    public function getReason()
+    public function getReason(): string
     {
-        return $this->data[self::REASON];
+        return $this->get($this->data, self::REASON);
     }
 
     /**
      * @return string
      */
-    public function getReasonDetail()
+    public function getReasonDetail(): string
     {
-        return $this->data[self::REASON_DETAIL];
+        return $this->get($this->data, self::REASON_DETAIL);
     }
 
     /**
      * @return int
      */
-    public function getPurchaseOrderId()
+    public function getPurchaseOrderId(): int
     {
-        return $this->data[self::PURCHASE_ORDER_ID];
+        return $this->get($this->data, self::PURCHASE_ORDER_ID);
     }
 
     /**
      * @return string
      */
-    public function getPurchaseOrderNumber()
+    public function getPurchaseOrderNumber(): string
     {
-        return $this->data[self::PURCHASE_ORDER_NUMBER];
+        return $this->get($this->data, self::PURCHASE_ORDER_NUMBER);
     }
 
     /**
      * @return string
      */
-    public function getPackageId()
+    public function getPackageId(): string
     {
-        return $this->data[self::PACKAGE_ID];
-    }
-
-    /**
-     * @return \DateTimeInterface
-     */
-    public function getPromisedShippingTimes()
-    {
-        return $this->data[self::PROMISED_SHIPPING_TIMES];
+        return $this->get($this->data, self::PACKAGE_ID);
     }
 
     /**
      * @return string
      */
-    public function getShippingProviderType()
+    public function getShippingProviderType(): string
     {
-        return $this->data[self::SHIPPING_PROVIDER_TYPE];
+        return $this->get($this->data, self::SHIPPING_PROVIDER_TYPE);
     }
 
     /**
      * @return string
      */
-    public function getExtraAttributes()
+    public function getExtraAttributes(): string
     {
-        return $this->data[self::EXTRA_ATTRIBUTES];
+        return $this->get($this->data, self::EXTRA_ATTRIBUTES);
     }
 
     /**
-     * @return \DateTimeInterface
+     * @return DateTimeInterface
      */
-    public function getCreatedAt()
+    public function getCreatedAt(): DateTimeInterface
     {
-        return $this->data[self::CREATED_AT];
+        return $this->get($this->data, self::CREATED_AT);
     }
 
     /**
-     * @return \DateTimeInterface
+     * @return DateTimeInterface
      */
-    public function getUpdatedAt()
+    public function getUpdatedAt(): DateTimeInterface
     {
-        return $this->data[self::UPDATED_AT];
+        return $this->get($this->data, self::UPDATED_AT);
     }
+
+    /**
+     * @return string
+     */
+    public function getVariation(): string
+    {
+        return $this->get($this->data, self::VARIATION, '');
+    }
+
+    /**
+     * @return string
+     */
+    public function getShipmentMethod(): string
+    {
+        return $this->get($this->data, self::SHIPMENT_METHOD, '');
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrency(): string
+    {
+        return $this->get($this->data, self::CURRENCY, '');
+    }
+
+    /**
+     * @return string
+     */
+    public function getCodCollectableAmount(): string
+    {
+        return $this->get($this->data, self::COD_COLLECTABLE_AMOUNT, '');
+    }
+
+    /**
+     * @return string
+     */
+    public function getShippingServiceCost(): string
+    {
+        return $this->get($this->data, self::SHIPPING_SERVICE_COST, '');
+    }
+
+    /**
+     * @return string
+     */
+    public function isProcessable(): string
+    {
+        return $this->get($this->data, self::IS_PROCESSABLE, '');
+    }
+
+    /**
+     * @return string
+     */
+    public function getTrackingCodePre(): string
+    {
+        return $this->get($this->data, self::TRACKING_CODE_PRE, '');
+    }
+
+    /**
+     * @return string
+     */
+    public function getPromisedShippingTime(): string
+    {
+        return $this->get($this->data, self::PROMISED_SHIPPING_TIME, '');
+    }
+
+    /**
+     * @return string
+     */
+    public function getReturnStatus(): string
+    {
+        return $this->get($this->data, self::RETURN_STATUS, '');
+    }
+
 }
