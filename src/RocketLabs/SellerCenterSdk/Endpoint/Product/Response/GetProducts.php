@@ -2,6 +2,7 @@
 
 namespace RocketLabs\SellerCenterSdk\Endpoint\Product\Response;
 
+use Illuminate\Support\Arr;
 use RocketLabs\SellerCenterSdk\Core\Response\GenericResponse;
 use RocketLabs\SellerCenterSdk\Endpoint\Product\Model\ProductCollection;
 use RocketLabs\SellerCenterSdk\Endpoint\Product\Model\Product;
@@ -36,11 +37,11 @@ class GetProducts extends GenericResponse
 
         $this->products = new ProductCollection([]);
 
-        if (isset($this->body[static::PRODUCTS_KEY])) {
-            if (isset($this->body[static::PRODUCTS_KEY][static::PRODUCT_KEY][Product::SELLER_SKU])) {
-                $products = [ $this->body[static::PRODUCTS_KEY][static::PRODUCT_KEY] ];
+        if ($allProducts = Arr::get($this->body, static::PRODUCTS_KEY)) {
+            if (Arr::get($allProducts, static::PRODUCT_KEY . '.' . Product::SELLER_SKU)) {
+                $products = [ $allProducts[static::PRODUCT_KEY] ];
             } else {
-                $products = $this->body[static::PRODUCTS_KEY][static::PRODUCT_KEY];
+                $products = $allProducts[static::PRODUCT_KEY];
             }
             foreach ($products as $product) {
                 $this->products->add(new Product($product));
