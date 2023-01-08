@@ -198,7 +198,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getVoucherCode(): string
+    public function getVoucherCode(): ?string
     {
         return $this->get($this->data, self::VOUCHER_CODE, '');
     }
@@ -214,7 +214,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getShipmentProvider(): string
+    public function getShipmentProvider(): ?string
     {
         return $this->get($this->data, self::SHIPMENT_PROVIDER, '');
     }
@@ -230,7 +230,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getDigitalDeliveryInfo(): string
+    public function getDigitalDeliveryInfo(): ?string
     {
         return $this->get($this->data, self::DIGITAL_DELIVERY_INFO, '');
     }
@@ -238,7 +238,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getTrackingCode(): string
+    public function getTrackingCode(): ?string
     {
         return $this->get($this->data, self::TRACKING_CODE, '');
     }
@@ -246,7 +246,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getReason(): string
+    public function getReason(): ?string
     {
         return $this->get($this->data, self::REASON, '');
     }
@@ -254,7 +254,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getReasonDetail(): string
+    public function getReasonDetail(): ?string
     {
         return $this->get($this->data, self::REASON_DETAIL, '');
     }
@@ -262,7 +262,7 @@ class Item extends ModelAbstract
     /**
      * @return int
      */
-    public function getPurchaseOrderId(): int
+    public function getPurchaseOrderId(): ?int
     {
         return $this->get($this->data, self::PURCHASE_ORDER_ID);
     }
@@ -270,7 +270,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getPurchaseOrderNumber(): string
+    public function getPurchaseOrderNumber(): ?string
     {
         return $this->get($this->data, self::PURCHASE_ORDER_NUMBER, '');
     }
@@ -278,7 +278,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getPackageId(): string
+    public function getPackageId(): ?string
     {
         return $this->get($this->data, self::PACKAGE_ID, '');
     }
@@ -286,7 +286,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getShippingProviderType(): string
+    public function getShippingProviderType(): ?string
     {
         return $this->get($this->data, self::SHIPPING_PROVIDER_TYPE, '');
     }
@@ -294,7 +294,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getExtraAttributes(): string
+    public function getExtraAttributes(): ?string
     {
         return $this->get($this->data, self::EXTRA_ATTRIBUTES, '');
     }
@@ -342,7 +342,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getCodCollectableAmount(): string
+    public function getCodCollectableAmount(): ?string
     {
         return $this->get($this->data, self::COD_COLLECTABLE_AMOUNT, '');
     }
@@ -350,7 +350,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getShippingServiceCost(): string
+    public function getShippingServiceCost(): ?string
     {
         return $this->get($this->data, self::SHIPPING_SERVICE_COST, '');
     }
@@ -358,7 +358,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function isProcessable(): string
+    public function isProcessable(): ?string
     {
         return $this->get($this->data, self::IS_PROCESSABLE, '');
     }
@@ -366,7 +366,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getTrackingCodePre(): string
+    public function getTrackingCodePre(): ?string
     {
         return $this->get($this->data, self::TRACKING_CODE_PRE, '');
     }
@@ -374,7 +374,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getPromisedShippingTime(): string
+    public function getPromisedShippingTime(): ?string
     {
         return $this->get($this->data, self::PROMISED_SHIPPING_TIME, '');
     }
@@ -382,7 +382,7 @@ class Item extends ModelAbstract
     /**
      * @return string
      */
-    public function getReturnStatus(): string
+    public function getReturnStatus(): ?string
     {
         return $this->get($this->data, self::RETURN_STATUS, '');
     }
