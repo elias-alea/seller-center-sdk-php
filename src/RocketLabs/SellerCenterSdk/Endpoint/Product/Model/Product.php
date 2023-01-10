@@ -81,9 +81,9 @@ class Product extends ModelAbstract
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getShopSku(): string
+    public function getShopSku(): ?string
     {
         return $this->get($this->data, self::SHOP_SKU);
     }
@@ -121,7 +121,7 @@ class Product extends ModelAbstract
     }
 
     /**
-     * @return string
+     * @return ?string
      */
     public function getVariation(): ?string
     {
@@ -145,7 +145,7 @@ class Product extends ModelAbstract
     }
 
     /**
-     * @return string
+     * @return ?string
      */
     public function getFulfillmentByNonSellable(): ?string
     {
@@ -169,7 +169,7 @@ class Product extends ModelAbstract
     }
 
     /**
-     * @return float
+     * @return ?float
      */
     public function getSalePrice(): ?float
     {
@@ -177,7 +177,7 @@ class Product extends ModelAbstract
     }
 
     /**
-     * @return DateTimeInterface
+     * @return ?DateTimeInterface
      */
     public function getSaleStartDate(): ?DateTimeInterface
     {
@@ -185,7 +185,7 @@ class Product extends ModelAbstract
     }
 
     /**
-     * @return DateTimeInterface
+     * @return ?DateTimeInterface
      */
     public function getSaleEndDate(): ?DateTimeInterface
     {
@@ -209,25 +209,25 @@ class Product extends ModelAbstract
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->get($this->data, self::URL);
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getMainImage(): string
+    public function getMainImage(): ?string
     {
         return $this->get($this->data, self::MAIN_IMAGE);
     }
 
     /**
-     * @return array
+     * @return ?array
      */
-    public function getImages(): array
+    public function getImages(): ?array
     {
         return $this->get($this->data, self::IMAGES);
     }
@@ -241,7 +241,7 @@ class Product extends ModelAbstract
     }
 
     /**
-     * @return string
+     * @return ?string
      */
     public function getCategories(): ?string
     {
@@ -249,7 +249,7 @@ class Product extends ModelAbstract
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function getProductData(): array
     {
@@ -265,7 +265,7 @@ class Product extends ModelAbstract
     }
 
     /**
-     * @return string
+     * @return ?string
      */
     public function getPackageContent(): ?string
     {
@@ -273,7 +273,7 @@ class Product extends ModelAbstract
     }
 
     /**
-     * @return string
+     * @return ?string
      */
     public function getShelfLifeManaged(): ?string
     {
