@@ -14,7 +14,7 @@ abstract class RequestBuilderAbstract implements RequestBuilderInterface
      * @param mixed $object
      * @return array
      */
-    protected function convertToArray($object)
+    protected function convertToArray(mixed $object): array
     {
 
         $data = get_object_vars($object);
@@ -35,5 +35,18 @@ abstract class RequestBuilderAbstract implements RequestBuilderInterface
         }
 
         return $data;
+    }
+
+    /**
+     * @param bool $condition
+     * @param callable $callback
+     * @return static
+     */
+    public function when(bool $condition, callable $callback): static
+    {
+        if ($condition) {
+            $callback($this);
+        }
+        return $this;
     }
 }
