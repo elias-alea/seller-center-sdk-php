@@ -37,7 +37,7 @@ class Attribute extends ModelAbstract
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->data[self::NAME];
     }
@@ -45,7 +45,7 @@ class Attribute extends ModelAbstract
     /**
      * @return string
      */
-    public function getLabel()
+    public function getLabel(): string
     {
         return $this->data[self::LABEL];
     }
@@ -53,35 +53,35 @@ class Attribute extends ModelAbstract
     /**
      * @return bool
      */
-    public function isMandatory()
+    public function isMandatory(): bool
     {
         return (bool) $this->data[self::IS_MANDATORY];
     }
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->data[self::DESCRIPTION];
     }
     /**
      * @return string
      */
-    public function getAttributeType()
+    public function getAttributeType(): string
     {
         return $this->data[self::ATTRIBUTE_TYPE];
     }
     /**
      * @return string
      */
-    public function getExampleValue()
+    public function getExampleValue(): string
     {
         return $this->data[self::EXAMPLE_VALUE];
     }
     /**
      * @return OptionCollection[]
      */
-    public function getOptions()
+    public function getOptions(): array
     {
         return $this->data[self::OPTIONS];
     }
@@ -89,7 +89,7 @@ class Attribute extends ModelAbstract
     /**
      * @inheritdoc
      */
-    protected function buildObjectFromDefinition(string $class, mixed $data)
+    protected function buildObjectFromDefinition(string $class, mixed $data): mixed
     {
 
         if ($class === OptionCollection::class) {

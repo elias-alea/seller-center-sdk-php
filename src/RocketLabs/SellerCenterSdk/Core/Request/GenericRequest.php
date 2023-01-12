@@ -2,9 +2,10 @@
 
 namespace RocketLabs\SellerCenterSdk\Core\Request;
 
+use Closure;
 use RocketLabs\SellerCenterSdk\Core\Client;
-use RocketLabs\SellerCenterSdk\Core\Response\ErrorResponse;
 use RocketLabs\SellerCenterSdk\Core\Response\GenericResponse;
+use RocketLabs\SellerCenterSdk\Core\Response\ResponseInterface;
 
 /**
  * Class GenericRequest
@@ -15,27 +16,27 @@ class GenericRequest implements RequestInterface
     /**
      * @var string
      */
-    protected $method;
+    protected string $method;
 
     /**
      * @var string
      */
-    protected $action;
+    protected string $action;
 
     /**
      * @var array
      */
-    protected $query;
+    protected array $query;
 
     /**
      * @var array
      */
-    protected $body;
+    protected array $body;
 
     /**
-     * @var
+     * @var string
      */
-    protected $version;
+    protected string $version;
 
     /**
      * GenericRequest constructor.
@@ -45,7 +46,7 @@ class GenericRequest implements RequestInterface
      * @param array $query
      * @param array $body
      */
-    public function __construct($method, $action, $version, array $query = [], array $body = [])
+    public function __construct(string $method, string $action, string $version, array $query = [], array $body = [])
     {
         $this->method = $method;
         $this->action = $action;
@@ -57,7 +58,7 @@ class GenericRequest implements RequestInterface
     /**
      * @return string
      */
-    public function getMethod()
+    public function getMethod(): string
     {
         return $this->method;
     }
@@ -65,7 +66,7 @@ class GenericRequest implements RequestInterface
     /**
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->action;
     }
@@ -73,15 +74,15 @@ class GenericRequest implements RequestInterface
     /**
      * @return array
      */
-    public function getBodyData()
+    public function getBodyData(): array
     {
         return $this->body;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         return $this->version;
     }
@@ -90,7 +91,7 @@ class GenericRequest implements RequestInterface
     /**
      * @return string[]
      */
-    public function toArray()
+    public function toArray(): array
     {
         return [
             static::FIELD_ACTION => $this->getAction(),
@@ -101,17 +102,18 @@ class GenericRequest implements RequestInterface
 
     /**
      * @param Client $client
-     * @return GenericResponse|ErrorResponse
+     * @param Closure|null $expectationsLogCallBack
+     * @return ResponseInterface
      */
-    public function call(Client $client)
+    public function call(Client $client, Closure $expectationsLogCallBack = null): ResponseInterface
     {
-        return $client->call($this);
+        return $client->call($this, $expectationsLogCallBack);
     }
 
     /**
      * @return string
      */
-    public function getResponseClassName()
+    public function getResponseClassName(): string
     {
         return GenericResponse::class;
     }
