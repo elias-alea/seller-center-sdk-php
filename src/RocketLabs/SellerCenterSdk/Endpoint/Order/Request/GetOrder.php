@@ -27,7 +27,7 @@ class GetOrder extends GenericRequest
     /**
      * @return string
      */
-    public function getResponseClassName()
+    public function getResponseClassName(): string
     {
         return GetOrderResponse::class;
     }
