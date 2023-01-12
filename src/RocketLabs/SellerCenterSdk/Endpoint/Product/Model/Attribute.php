@@ -57,13 +57,15 @@ class Attribute extends ModelAbstract
     {
         return (bool) $this->data[self::IS_MANDATORY];
     }
+
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->data[self::DESCRIPTION];
     }
+
     /**
      * @return string
      */
@@ -71,17 +73,19 @@ class Attribute extends ModelAbstract
     {
         return $this->data[self::ATTRIBUTE_TYPE];
     }
+
     /**
-     * @return string
+     * @return string|null
      */
-    public function getExampleValue(): string
+    public function getExampleValue(): ?string
     {
         return $this->data[self::EXAMPLE_VALUE];
     }
+
     /**
-     * @return OptionCollection[]
+     * @return OptionCollection|null
      */
-    public function getOptions(): array
+    public function getOptions(): ?OptionCollection
     {
         return $this->data[self::OPTIONS];
     }
