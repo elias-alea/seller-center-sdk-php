@@ -1,6 +1,7 @@
 <?php
 namespace RocketLabs\SellerCenterSdk\Core;
 
+use Closure;
 use GuzzleHttp\Psr7\Request;
 use RocketLabs\SellerCenterSdk\Core\Http\ClientInterface as HttpClientInterface;
 use RocketLabs\SellerCenterSdk\Core\Http\GuzzleClientAdapter;
@@ -86,10 +87,10 @@ class Client
 
     /**
      * @param RequestInterface $request
-     *
+     * @param Closure|null $expectationsLogCallBack
      * @return ResponseInterface
      */
-    public function call(RequestInterface $request): ResponseInterface
+    public function call(RequestInterface $request, Closure $expectationsLogCallBack = null): ResponseInterface
     {
         $httpRequest = new Request(
             $request->getMethod(),
@@ -99,7 +100,7 @@ class Client
                 $this->requestBodyFormatter->convertToOutputFormat($request->getBodyData()) : null
         );
 
-        $httpResponse = $this->httpClient->send($httpRequest);
+        $httpResponse = $this->httpClient->send($httpRequest, [], $expectationsLogCallBack);
 
         return $this->responseFactory->buildResponse($httpResponse, $request->getResponseClassName());
     }

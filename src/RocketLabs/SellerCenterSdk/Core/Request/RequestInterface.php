@@ -1,5 +1,6 @@
 <?php
 namespace RocketLabs\SellerCenterSdk\Core\Request;
+use Closure;
 use RocketLabs\SellerCenterSdk\Core\Client;
 use RocketLabs\SellerCenterSdk\Core\Response\ResponseInterface;
 
@@ -26,36 +27,37 @@ interface RequestInterface
      *
      * @return string
      */
-    public function getAction();
+    public function getAction(): string;
 
     /**
      * @return string
      */
-    public function getMethod();
+    public function getMethod(): string;
 
     /**
      * @return null|array
      */
-    public function getBodyData();
+    public function getBodyData(): ?array;
 
     /**
      * @return string[]
      */
-    public function toArray();
+    public function toArray(): array;
 
     /**
      * @return string
      */
-    public function getVersion();
+    public function getVersion(): string;
 
     /**
      * @return string
      */
-    public function getResponseClassName();
+    public function getResponseClassName(): string;
 
     /**
      * @param Client $client
+     * @param Closure|null $expectationsLogCallBack
      * @return ResponseInterface
      */
-    public function call(Client $client);
+    public function call(Client $client, Closure $expectationsLogCallBack = null): ResponseInterface;
 }
