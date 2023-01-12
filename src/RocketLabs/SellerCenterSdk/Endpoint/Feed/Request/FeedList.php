@@ -30,7 +30,7 @@ class FeedList extends GenericRequest
     /**
      * @return string
      */
-    public function getResponseClassName()
+    public function getResponseClassName(): string
     {
         return FeedListResponse::class;
     }

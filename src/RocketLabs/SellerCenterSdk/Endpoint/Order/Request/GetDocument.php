@@ -38,7 +38,7 @@ class GetDocument extends GenericRequest
     /**
      * @return string
      */
-    public function getResponseClassName()
+    public function getResponseClassName(): string
     {
         return GetDocumentResponse::class;
     }
