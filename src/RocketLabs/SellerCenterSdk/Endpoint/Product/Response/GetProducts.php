@@ -2,7 +2,6 @@
 
 namespace RocketLabs\SellerCenterSdk\Endpoint\Product\Response;
 
-use Illuminate\Support\Arr;
 use RocketLabs\SellerCenterSdk\Core\Response\GenericResponse;
 use RocketLabs\SellerCenterSdk\Endpoint\Product\Model\ProductCollection;
 use RocketLabs\SellerCenterSdk\Endpoint\Product\Model\Product;
@@ -26,14 +25,6 @@ class GetProducts extends GenericResponse
     public function getProducts()
     {
         return $this->products;
-    }
-
-    /**
-     * @return ?int
-     */
-    public function getTotalCount(): ?int
-    {
-        return Arr::get($this->head, 'TotalCount');
     }
 
     /**
