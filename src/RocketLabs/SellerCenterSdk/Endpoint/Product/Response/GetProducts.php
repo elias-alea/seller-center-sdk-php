@@ -29,6 +29,14 @@ class GetProducts extends GenericResponse
     }
 
     /**
+     * @return ?int
+     */
+    public function getTotalCount(): ?int
+    {
+        return Arr::get($this->head, 'TotalCount');
+    }
+
+    /**
      * @param array $responseData
      */
     protected function processDecodedResponse(array $responseData)
