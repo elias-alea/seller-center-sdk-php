@@ -2,6 +2,8 @@
 
 namespace RocketLabs\SellerCenterSdk\Core\Response;
 
+use Illuminate\Support\Arr;
+
 class AbstractResponse implements ResponseInterface
 {
     /** @var string */
@@ -40,6 +42,14 @@ class AbstractResponse implements ResponseInterface
     public function getBody()
     {
         return $this->body;
+    }
+
+    /**
+     * @return ?int
+     */
+    public function getTotalCount(): ?int
+    {
+        return Arr::get($this->head, 'TotalCount');
     }
 
     /**
