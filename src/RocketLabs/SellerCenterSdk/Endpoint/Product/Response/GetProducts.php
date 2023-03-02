@@ -2,6 +2,7 @@
 
 namespace RocketLabs\SellerCenterSdk\Endpoint\Product\Response;
 
+use Illuminate\Support\Arr;
 use RocketLabs\SellerCenterSdk\Core\Response\GenericResponse;
 use RocketLabs\SellerCenterSdk\Endpoint\Product\Model\ProductCollection;
 use RocketLabs\SellerCenterSdk\Endpoint\Product\Model\Product;
